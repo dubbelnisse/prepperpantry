@@ -39,13 +39,12 @@ export const resolvers: Resolvers = {
         .from('users')
         .where('email', auth.email)
         .first()
-      console.log('hej')
 
       const pantryItems = await db
         .select('id', 'name', 'quantity', 'volume', 'expire')
         .from('pantry')
         .where('user_id', user.id)
-      console.log(pantryItems)
+
       return pantryItems
     },
   },
